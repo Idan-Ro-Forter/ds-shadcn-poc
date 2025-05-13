@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Chip from '../components/chip'
-import { AArrowDown } from 'lucide-react'
 
 const meta: Meta<typeof Chip> = {
   title: 'Components/Chip',
@@ -11,9 +10,13 @@ const meta: Meta<typeof Chip> = {
   tags: ['autodocs'],
   argTypes: {
     variant: {
-      options: ['default', 'secondary', 'destructive', 'outline'],
+      options: ['default', 'secondary', 'destructive', 'outline', 'action'],
       control: { type: 'select' },
     },
+    selected: {
+      control: 'boolean',
+    },
+    onAction: { action: 'clicked' },
   },
 }
 
@@ -27,12 +30,28 @@ export const Default: Story = {
   },
 }
 
+export const ActionChip: Story = {
+  args: {
+    children: 'Click me',
+    selected: false,
+  },
+}
+
+export const SelectedActionChip: Story = {
+  args: {
+    children: 'Selected',
+    onAction: () => alert('Clicked'),
+    selected: true,
+  },
+}
+
 export const ActiveBrand: Story = {
   args: {
     children: 'Active-brand',
     variant: 'active-brand',
   },
 }
+
 export const Secondary: Story = {
   args: {
     children: 'Chip',

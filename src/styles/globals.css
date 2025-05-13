@@ -50,6 +50,7 @@
   --text-secondary: oklch(0.47 0.0643 264.13);
   --text-brand: oklch(0.59 0.2092 259.36);
   --surface-secondary-brand: oklch(0.93 0.032255 258.3685);
+  --border-brand: oklch(0.59 0.2092 259.36);
 }
 
 .dark {
@@ -89,6 +90,7 @@
   --text-secondary: oklch(0.47 0.0643 264.13);
   --text-brand: oklch(0.59 0.2092 259.36);
   --surface-secondary-brand: oklch(0.93 0.032255 258.3685);
+  --border-brand: oklch(0.59 0.2092 259.36);
 }
 
 @theme inline {
