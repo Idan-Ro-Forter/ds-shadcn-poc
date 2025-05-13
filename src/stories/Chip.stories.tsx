@@ -22,11 +22,7 @@ type Story = StoryObj<typeof Chip>
 
 export const Default: Story = {
   args: {
-    children: (
-      <div className="flex p-2 ">
-        Chip <AArrowDown size={16} />
-      </div>
-    ),
+    children: 'Chip',
     variant: 'default',
   },
 }

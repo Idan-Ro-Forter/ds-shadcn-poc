@@ -2,7 +2,25 @@
 @import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
+@font-face {
+  font-family: 'Poppins';
+  src:
+    url('/fonts/Poppins-Regular.woff2') format('woff2'),
+    url('/fonts/Poppins-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: 'Poppins';
+  src:
+    url('/fonts/Poppins-Medium.woff2') format('woff2'),
+    url('/fonts/Poppins-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -37,6 +55,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --surface-tertiary: oklch(0.97 0.0029 264.54);
+  --text-secondary: oklch(0.47 0.0643 264.13);
 }
 
 .dark {
@@ -72,6 +92,8 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+  --surface-tertiary: oklch(0.97 0.0029 264.54);
+  --text-secondary: oklch(0.47 0.0643 264.13);
 }
 
 @theme inline {
