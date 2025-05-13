@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Chip from '../components/chip'
+import { action } from '@storybook/addon-actions'
+import { ChevronRight, Star } from 'lucide-react'
 
 const meta: Meta<typeof Chip> = {
   title: 'Components/Chip',
@@ -17,6 +19,15 @@ const meta: Meta<typeof Chip> = {
       control: 'boolean',
     },
     onAction: { action: 'clicked' },
+    leftIcon: {
+      control: false,
+    },
+    rightIcon: {
+      control: false,
+    },
+  },
+  args: {
+    onAction: undefined,
   },
 }
 
@@ -34,13 +45,15 @@ export const ActionChip: Story = {
   args: {
     children: 'Click me',
     selected: false,
+    leftIcon: <Star size={16} />,
+    onAction: action('clicked action'),
   },
 }
 
 export const SelectedActionChip: Story = {
   args: {
     children: 'Selected',
-    onAction: () => alert('Clicked'),
+    onAction: action('clicked action'),
     selected: true,
   },
 }
@@ -70,5 +83,30 @@ export const Outline: Story = {
   args: {
     children: 'Outline',
     variant: 'outline',
+  },
+}
+
+export const WithLeftIcon: Story = {
+  args: {
+    children: 'Left Icon',
+    leftIcon: <Star size={16} />,
+    variant: 'default',
+  },
+}
+
+export const WithRightIcon: Story = {
+  args: {
+    children: 'Right Icon',
+    rightIcon: <ChevronRight size={16} />,
+    variant: 'default',
+  },
+}
+
+export const WithBothIcons: Story = {
+  args: {
+    children: 'Both Icons',
+    leftIcon: <Star size={16} />,
+    rightIcon: <ChevronRight size={16} />,
+    variant: 'default',
   },
 }
