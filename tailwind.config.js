@@ -36,9 +36,13 @@ module.exports = {
         },
         surface: {
           tertiary: '#F4F5F7',
+          secondary: {
+            brand: '#DCEAFF',
+          },
         },
         text: {
           secondary: '#495B80',
+          brand: '#1F75F6',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',

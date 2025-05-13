@@ -22,11 +22,17 @@ type Story = StoryObj<typeof Chip>
 
 export const Default: Story = {
   args: {
-    children: 'Chip',
+    children: 'Basic',
     variant: 'default',
   },
 }
 
+export const ActiveBrand: Story = {
+  args: {
+    children: 'Active-brand',
+    variant: 'active-brand',
+  },
+}
 export const Secondary: Story = {
   args: {
     children: 'Chip',
