@@ -18,7 +18,11 @@ const meta: Meta<typeof Chip> = {
     selected: {
       control: 'boolean',
     },
+    dismissible: {
+      control: 'boolean',
+    },
     onAction: { action: 'clicked' },
+    onDismiss: { action: 'dismissed' },
     leftIcon: {
       control: false,
     },
@@ -28,6 +32,7 @@ const meta: Meta<typeof Chip> = {
   },
   args: {
     onAction: undefined,
+    onDismiss: undefined,
   },
 }
 
@@ -108,5 +113,34 @@ export const WithBothIcons: Story = {
     leftIcon: <Star size={16} />,
     rightIcon: <ChevronRight size={16} />,
     variant: 'default',
+  },
+}
+
+export const DismissibleChip: Story = {
+  args: {
+    children: 'Click X to dismiss',
+    dismissible: true,
+    variant: 'default',
+    onDismiss: action('dismissed'),
+  },
+}
+
+export const DismissibleWithIcon: Story = {
+  args: {
+    children: 'Dismissible with icon',
+    leftIcon: <Star size={16} />,
+    dismissible: true,
+    variant: 'default',
+    onDismiss: action('dismissed'),
+  },
+}
+
+export const DismissibleActionChip: Story = {
+  args: {
+    children: 'Click me or dismiss',
+    dismissible: true,
+    onAction: action('clicked action'),
+    onDismiss: action('dismissed'),
+    variant: 'active-brand',
   },
 }

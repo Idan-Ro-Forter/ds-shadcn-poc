@@ -1,5 +1,6 @@
 import { FC, useState, ReactNode } from 'react'
 import { Badge, BadgeProps } from './ui/badge'
+import { X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface ChipProps extends Omit<BadgeProps, 'onClick'> {
@@ -7,6 +8,8 @@ interface ChipProps extends Omit<BadgeProps, 'onClick'> {
   selected?: boolean
   leftIcon?: ReactNode
   rightIcon?: ReactNode
+  dismissible?: boolean
+  onDismiss?: () => void
 }
 
 const Chip: FC<ChipProps> = ({
@@ -15,15 +18,30 @@ const Chip: FC<ChipProps> = ({
   onAction,
   leftIcon,
   rightIcon,
+  dismissible = false,
+  onDismiss,
   ...props
 }) => {
   const [isSelected, setIsSelected] = useState(selected)
+  const [visible, setVisible] = useState(true)
 
   const handleClick = () => {
     if (onAction) {
       setIsSelected(!isSelected)
       onAction?.()
     }
+  }
+
+  const handleDismiss = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setVisible(false)
+    if (onDismiss) {
+      onDismiss()
+    }
+  }
+
+  if (!visible) {
+    return null
   }
 
   return (
@@ -35,7 +53,16 @@ const Chip: FC<ChipProps> = ({
     >
       {leftIcon && <span className="inline-flex">{leftIcon}</span>}
       {children}
-      {rightIcon && <span className="inline-flex">{rightIcon}</span>}
+      {dismissible && (
+        <span
+          className="ml-1 inline-flex cursor-pointer rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10"
+          onClick={handleDismiss}
+          aria-label="Dismiss"
+        >
+          <X size={14} />
+        </span>
+      )}
+      {!dismissible && rightIcon && <span className="inline-flex">{rightIcon}</span>}
     </Badge>
   )
 }
