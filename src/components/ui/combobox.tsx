@@ -84,7 +84,7 @@ export const Combobox = ({
 
   return (
     <CommandPrimitive onKeyDown={handleKeyDown}>
-      <div className="border-border-primary bg-surface-primary hover:bg-surface-secondary focus:border-border-brand focus-within:border-border-brand flex h-[36px] w-[288px] items-center rounded-full border px-2 py-[10px]">
+      <div className="border-border-primary bg-surface-primary hover:bg-surface-secondary focus:border-border-brand focus-within:border-border-brand flex h-[36px] w-[320px] items-center rounded-full border px-2 py-[10px]">
         <CommandInput
           ref={inputRef}
           value={inputValue}
