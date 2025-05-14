@@ -82,6 +82,18 @@ export const Combobox = ({
     [onValueChange]
   )
 
+  const handleChevronClick = useCallback(() => {
+    if (disabled) return
+
+    if (inputRef.current) {
+      if (document.activeElement === inputRef.current) {
+        inputRef.current.blur()
+      } else {
+        inputRef.current.focus()
+      }
+    }
+  }, [disabled])
+
   return (
     <CommandPrimitive onKeyDown={handleKeyDown}>
       <div className="border-border-primary bg-surface-primary hover:bg-surface-secondary focus:border-border-brand focus-within:border-border-brand flex h-[36px] w-[320px] items-center rounded-full border px-2 py-[10px]">
@@ -94,7 +106,12 @@ export const Combobox = ({
           placeholder={placeholder}
           disabled={disabled}
         ></CommandInput>
-        <ChevronDown className="h-4 w-4" />
+        <ChevronDown
+          className={cn('h-4 w-4', disabled ? 'opacity-50' : 'cursor-pointer')}
+          onClick={handleChevronClick}
+          aria-label={isOpen ? 'Close dropdown' : 'Open dropdown'}
+          role="button"
+        />
       </div>
       <div className="relative mt-1">
         <div
