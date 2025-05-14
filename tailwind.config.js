@@ -23,6 +23,7 @@ module.exports = {
       colors: {
         border: {
           DEFAULT: 'hsl(var(--border))',
+          primary: 'var(--border-primary)',
           brand: '#1F75F6',
         },
         input: 'hsl(var(--input))',
@@ -38,15 +39,19 @@ module.exports = {
           foreground: 'hsl(var(--secondary-foreground))',
         },
         surface: {
+          primary: 'var(--surface-primary)',
           // tertiary: 'hsl(var(--surface-tertiary))', // other option
           tertiary: 'var(--surface-tertiary)',
           secondary: {
+            DEFAULT: 'var(--surface-secondary)',
             brand: '#DCEAFF',
           },
         },
         text: {
           secondary: 'var(--text-secondary)',
           brand: '#1F75F6',
+          tertiary: 'var(--text-tertiary)',
+          assistive: 'hsl(var(--text-assistive))',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
