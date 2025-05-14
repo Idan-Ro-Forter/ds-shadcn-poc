@@ -119,7 +119,7 @@ export const Combobox = ({
       <div className="relative mt-1">
         <div
           className={cn(
-            'absolute top-0 z-10 w-full rounded-xl border bg-white outline-none animate-in fade-in-0 zoom-in-95',
+            'shadow-bg absolute top-0 z-10 w-full rounded-xl border bg-white outline-none animate-in fade-in-0 zoom-in-95',
             isOpen ? 'block' : 'hidden'
           )}
         >
