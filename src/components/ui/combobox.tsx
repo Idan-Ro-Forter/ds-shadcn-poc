@@ -3,6 +3,7 @@ import { Command as CommandPrimitive } from 'cmdk'
 import { useState, useRef, useCallback, type KeyboardEvent } from 'react'
 import { ChevronDown, AlertCircle, Check } from 'lucide-react'
 import { cn } from '../../lib/utils'
+import { Skeleton } from './skeleton'
 
 export type Option = Record<'value' | 'label', string> & Record<string, string>
 
@@ -138,7 +139,23 @@ export const Combobox = ({
             <CommandList className="rounded-lg ring-1 ring-slate-200">
               {isLoading ? (
                 <CommandPrimitive.Loading>
-                  <div className="p-1">{/* <Skeleton className="h-8 w-full" /> */}</div>
+                  <div className="p-1">
+                    {' '}
+                    {options.map((option) => (
+                      <div
+                        key={option.value}
+                        className="flex w-full items-center gap-2 rounded-sm px-2 py-0.5 text-sm"
+                      >
+                        <Skeleton
+                          className="h-4"
+                          style={{
+                            width: `${Math.floor(Math.random() * 40) + 60}%`, // random width between 60% and 100%
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  {/* <Skeleton className="h-6 w-full" /> */}
                 </CommandPrimitive.Loading>
               ) : null}
               {options.length > 0 && !isLoading ? (

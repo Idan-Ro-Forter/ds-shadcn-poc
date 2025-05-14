@@ -48,3 +48,16 @@ export const WithError: Story = {
     error: 'Invalid Option',
   },
 }
+
+export const Loading: Story = {
+  args: {
+    placeholder: 'Search or select...',
+    emptyMessage: 'No matches found',
+    options: [
+      { value: 'option-1', label: 'Option 1' },
+      { value: 'option-2', label: 'Option 2' },
+      { value: 'option-3', label: 'Option 3' },
+    ],
+    isLoading: true,
+  },
+}
