@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react'
 import '../src/index.css'
+import { ThemeDecorator } from './ThemeDecorator'
 
 const preview: Preview = {
   parameters: {
@@ -8,6 +9,19 @@ const preview: Preview = {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/,
+      },
+    },
+  },
+  decorators: [ThemeDecorator],
+  globalTypes: {
+    theme: {
+      description: 'Global theme for components',
+      defaultValue: 'light',
+      toolbar: {
+        title: 'Theme',
+        icon: 'circlehollow',
+        items: ['light', 'dark'],
+        dynamicTitle: true,
       },
     },
   },

@@ -38,7 +38,8 @@ module.exports = {
           foreground: 'hsl(var(--secondary-foreground))',
         },
         surface: {
-          tertiary: '#F4F5F7',
+          // tertiary: 'hsl(var(--surface-tertiary))', // other option
+          tertiary: 'var(--surface-tertiary)',
           secondary: {
             brand: '#DCEAFF',
           },
