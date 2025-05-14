@@ -22,6 +22,7 @@ const Chip: FC<ChipProps> = ({
   dismissible = false,
   onDismiss,
   disabled = false,
+  className,
   ...props
 }) => {
   const [isSelected, setIsSelected] = useState(selected)
@@ -50,11 +51,14 @@ const Chip: FC<ChipProps> = ({
 
   return (
     <Badge
-      className={cn({
-        'border-border-brand border': isSelected && !disabled,
-        'cursor-pointer': onAction && !disabled,
-        'cursor-not-allowed opacity-50': disabled,
-      })}
+      className={cn(
+        {
+          'border-border-brand border': isSelected && !disabled,
+          'cursor-pointer': onAction && !disabled,
+          'cursor-not-allowed opacity-50': disabled,
+        },
+        className
+      )}
       onClick={!disabled && onAction ? handleClick : undefined}
       data-selected={isSelected}
       data-disabled={disabled}

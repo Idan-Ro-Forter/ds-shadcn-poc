@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import Chip from '../components/chip'
 import { action } from '@storybook/addon-actions'
 import { ChevronRight, Star } from 'lucide-react'
+import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar'
 
 const meta: Meta<typeof Chip> = {
   title: 'Components/Chip',
@@ -171,5 +172,54 @@ export const DisabledDismissibleChip: Story = {
     disabled: true,
     dismissible: true,
     onDismiss: action('dismissed'),
+  },
+}
+
+export const ChipWithAvatar: Story = {
+  args: {
+    children: (
+      <>
+        <Avatar className="mr-1 h-6 w-6">
+          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
+        User Name
+      </>
+    ),
+    variant: 'default',
+    className: 'px-0.5',
+  },
+}
+
+export const ChipWithAvatarFallback: Story = {
+  args: {
+    children: (
+      <>
+        <Avatar className="mr-1 h-6 w-6">
+          <AvatarFallback>JD</AvatarFallback>
+        </Avatar>
+        John Doe
+      </>
+    ),
+    variant: 'active-brand',
+    className: 'px-0.5',
+  },
+}
+
+export const DismissibleChipWithAvatar: Story = {
+  args: {
+    children: (
+      <>
+        <Avatar className="mr-1 h-6 w-6">
+          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
+        Dismissible User
+      </>
+    ),
+    className: 'px-0.5',
+    dismissible: true,
+    onDismiss: action('dismissed'),
+    variant: 'default',
   },
 }
