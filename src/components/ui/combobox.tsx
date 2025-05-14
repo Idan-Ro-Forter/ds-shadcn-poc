@@ -107,7 +107,10 @@ export const Combobox = ({
           disabled={disabled}
         ></CommandInput>
         <ChevronDown
-          className={cn('h-4 w-4', disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer')}
+          className={cn(
+            'h-5 w-5 stroke-[#7F92B9]',
+            disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
+          )}
           onClick={handleChevronClick}
           aria-label={isOpen ? 'Close dropdown' : 'Open dropdown'}
           role="button"
