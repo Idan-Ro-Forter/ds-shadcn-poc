@@ -21,6 +21,9 @@ const meta: Meta<typeof Chip> = {
     dismissible: {
       control: 'boolean',
     },
+    disabled: {
+      control: 'boolean',
+    },
     onAction: { action: 'clicked' },
     onDismiss: { action: 'dismissed' },
     leftIcon: {
@@ -142,5 +145,31 @@ export const DismissibleActionChip: Story = {
     onAction: action('clicked action'),
     onDismiss: action('dismissed'),
     variant: 'active-brand',
+  },
+}
+
+export const DisabledChip: Story = {
+  args: {
+    children: 'Disabled chip',
+    disabled: true,
+    variant: 'default',
+  },
+}
+
+export const DisabledActionChip: Story = {
+  args: {
+    children: 'Disabled action',
+    disabled: true,
+    onAction: action('clicked action'),
+    variant: 'active-brand',
+  },
+}
+
+export const DisabledDismissibleChip: Story = {
+  args: {
+    children: 'Disabled dismissible',
+    disabled: true,
+    dismissible: true,
+    onDismiss: action('dismissed'),
   },
 }

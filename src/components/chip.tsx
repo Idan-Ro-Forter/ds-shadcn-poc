@@ -10,6 +10,7 @@ interface ChipProps extends Omit<BadgeProps, 'onClick'> {
   rightIcon?: ReactNode
   dismissible?: boolean
   onDismiss?: () => void
+  disabled?: boolean
 }
 
 const Chip: FC<ChipProps> = ({
@@ -20,19 +21,22 @@ const Chip: FC<ChipProps> = ({
   rightIcon,
   dismissible = false,
   onDismiss,
+  disabled = false,
   ...props
 }) => {
   const [isSelected, setIsSelected] = useState(selected)
   const [visible, setVisible] = useState(true)
 
   const handleClick = () => {
-    if (onAction) {
+    if (onAction && !disabled) {
       setIsSelected(!isSelected)
       onAction?.()
     }
   }
 
   const handleDismiss = (e: React.MouseEvent) => {
+    if (disabled) return
+
     e.stopPropagation()
     setVisible(false)
     if (onDismiss) {
@@ -46,16 +50,24 @@ const Chip: FC<ChipProps> = ({
 
   return (
     <Badge
-      className={cn({ 'border-border-brand border': isSelected, 'cursor-pointer': onAction })}
-      onClick={onAction ? handleClick : undefined}
+      className={cn({
+        'border-border-brand border': isSelected && !disabled,
+        'cursor-pointer': onAction && !disabled,
+        'cursor-not-allowed opacity-50': disabled,
+      })}
+      onClick={!disabled && onAction ? handleClick : undefined}
       data-selected={isSelected}
+      data-disabled={disabled}
+      aria-disabled={disabled}
       {...props}
     >
       {leftIcon && <span className="inline-flex">{leftIcon}</span>}
       {children}
       {dismissible && (
         <span
-          className="ml-1 inline-flex cursor-pointer rounded-full p-0.5 hover:bg-black/10 dark:hover:bg-white/10"
+          className={cn('ml-1 inline-flex  rounded-full p-0.5', {
+            'cursor-pointer hover:bg-black/10': !disabled,
+          })}
           onClick={handleDismiss}
           aria-label="Dismiss"
         >
