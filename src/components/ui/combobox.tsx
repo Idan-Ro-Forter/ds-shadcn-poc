@@ -99,7 +99,8 @@ export const Combobox = ({
       <div
         className={cn(
           'border-border-primary bg-surface-primary hover:bg-surface-secondary focus:border-border-brand focus-within:border-border-brand flex h-[36px] w-[320px] items-center rounded-full border px-2 py-[10px]',
-          error && 'border-red-500 focus-within:border-red-500 focus:border-red-500' // Apply red border when there's an error
+          error && 'border-red-500 focus-within:border-red-500 focus:border-red-500', // Apply red border when there's an error
+          disabled && 'bg-surface-tertiary hover:bg-surface-tertiary'
         )}
       >
         <CommandInput
@@ -126,49 +127,54 @@ export const Combobox = ({
         )}
       </div>
 
-      <div className="relative mt-1">
-        <div
-          className={cn(
-            'shadow-bg absolute top-0 z-10 w-full rounded-xl border bg-white outline-none animate-in fade-in-0 zoom-in-95',
-            isOpen ? 'block' : 'hidden'
-          )}
-        >
-          <CommandList className="rounded-lg ring-1 ring-slate-200">
-            {isLoading ? (
-              <CommandPrimitive.Loading>
-                <div className="p-1">{/* <Skeleton className="h-8 w-full" /> */}</div>
-              </CommandPrimitive.Loading>
-            ) : null}
-            {options.length > 0 && !isLoading ? (
-              <CommandGroup>
-                {options.map((option) => {
-                  const isSelected = selected?.value === option.value
-                  return (
-                    <CommandItem
-                      key={option.value}
-                      value={option.label}
-                      onMouseDown={(event) => {
-                        event.preventDefault()
-                        event.stopPropagation()
-                      }}
-                      onSelect={() => handleSelectOption(option)}
-                      className={cn('flex w-full items-center gap-2', !isSelected ? 'pl-8' : null)}
-                    >
-                      {isSelected ? <Check className="w-4" /> : null}
-                      {option.label}
-                    </CommandItem>
-                  )
-                })}
-              </CommandGroup>
-            ) : null}
-            {!isLoading ? (
-              <CommandPrimitive.Empty className="select-none rounded-sm px-2 py-3 text-center text-sm">
-                {emptyMessage}
-              </CommandPrimitive.Empty>
-            ) : null}
-          </CommandList>
+      {!disabled && (
+        <div className="relative mt-1">
+          <div
+            className={cn(
+              'shadow-bg absolute top-0 z-10 w-full rounded-xl border bg-white outline-none animate-in fade-in-0 zoom-in-95',
+              isOpen ? 'block' : 'hidden'
+            )}
+          >
+            <CommandList className="rounded-lg ring-1 ring-slate-200">
+              {isLoading ? (
+                <CommandPrimitive.Loading>
+                  <div className="p-1">{/* <Skeleton className="h-8 w-full" /> */}</div>
+                </CommandPrimitive.Loading>
+              ) : null}
+              {options.length > 0 && !isLoading ? (
+                <CommandGroup>
+                  {options.map((option) => {
+                    const isSelected = selected?.value === option.value
+                    return (
+                      <CommandItem
+                        key={option.value}
+                        value={option.label}
+                        onMouseDown={(event) => {
+                          event.preventDefault()
+                          event.stopPropagation()
+                        }}
+                        onSelect={() => handleSelectOption(option)}
+                        className={cn(
+                          'flex w-full items-center gap-2',
+                          !isSelected ? 'pl-8' : null
+                        )}
+                      >
+                        {isSelected ? <Check className="w-4" /> : null}
+                        {option.label}
+                      </CommandItem>
+                    )
+                  })}
+                </CommandGroup>
+              ) : null}
+              {!isLoading ? (
+                <CommandPrimitive.Empty className="select-none rounded-sm px-2 py-3 text-center text-sm">
+                  {emptyMessage}
+                </CommandPrimitive.Empty>
+              ) : null}
+            </CommandList>
+          </div>
         </div>
-      </div>
+      )}
     </CommandPrimitive>
   )
 }
