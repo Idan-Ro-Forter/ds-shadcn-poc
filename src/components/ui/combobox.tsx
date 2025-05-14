@@ -84,20 +84,8 @@ export const Combobox = ({
 
   return (
     <CommandPrimitive onKeyDown={handleKeyDown}>
-      <div className="flex items-center rounded-full border px-3 [&>[cmdk-input-wrapper]]:h-9 [&>[cmdk-input-wrapper]]:border-none">
-        {/* <input
-          type="text"
-          ref={inputRef}
-          value={inputValue}
-          onChange={setInputValue}
-          onBlur={handleBlur}
-          onFocus={() => setOpen(true)}
-          placeholder={placeholder}
-          disabled={disabled}
-          className="flex h-11 w-full rounded-md bg-transparent py-3 text-base outline-none placeholder:text-slate-500 disabled:cursor-not-allowed disabled:opacity-50"
-        /> */}
+      <div className="flex items-center rounded-full border px-3">
         <CommandInput
-          style={{ border: 'none' }}
           ref={inputRef}
           value={inputValue}
           onValueChange={isLoading ? undefined : setInputValue}

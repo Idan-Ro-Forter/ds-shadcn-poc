@@ -15,7 +15,8 @@ type Story = StoryObj<typeof Combobox>
 
 export const Default: Story = {
   args: {
-    placeholder: 'Select an option',
+    placeholder: 'Search or select...',
+    emptyMessage: 'No matches found',
     options: [
       { value: 'option-1', label: 'Option 1' },
       { value: 'option-2', label: 'Option 2' },

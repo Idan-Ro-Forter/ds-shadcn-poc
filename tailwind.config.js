@@ -45,7 +45,7 @@ module.exports = {
           },
         },
         text: {
-          secondary: '#495B80',
+          secondary: 'var(--text-secondary)',
           brand: '#1F75F6',
         },
         destructive: {
