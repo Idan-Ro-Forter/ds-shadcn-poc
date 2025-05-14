@@ -1,9 +1,7 @@
 import { CommandGroup, CommandItem, CommandList, CommandInput } from './command'
 import { Command as CommandPrimitive } from 'cmdk'
 import { useState, useRef, useCallback, type KeyboardEvent } from 'react'
-import { ChevronDown } from 'lucide-react'
-
-import { Check } from 'lucide-react'
+import { ChevronDown, AlertCircle, Check } from 'lucide-react'
 import { cn } from '../../lib/utils'
 
 export type Option = Record<'value' | 'label', string> & Record<string, string>
@@ -16,6 +14,7 @@ type AutoCompleteProps = {
   isLoading?: boolean
   disabled?: boolean
   placeholder?: string
+  error?: string
 }
 
 export const Combobox = ({
@@ -26,6 +25,7 @@ export const Combobox = ({
   onValueChange,
   disabled,
   isLoading = false,
+  error,
 }: AutoCompleteProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -96,26 +96,36 @@ export const Combobox = ({
 
   return (
     <CommandPrimitive onKeyDown={handleKeyDown}>
-      <div className="border-border-primary bg-surface-primary hover:bg-surface-secondary focus:border-border-brand focus-within:border-border-brand flex h-[36px] w-[320px] items-center rounded-full border px-2 py-[10px]">
+      <div
+        className={cn(
+          'border-border-primary bg-surface-primary hover:bg-surface-secondary focus:border-border-brand focus-within:border-border-brand flex h-[36px] w-[320px] items-center rounded-full border px-2 py-[10px]',
+          error && 'border-red-500 focus-within:border-red-500 focus:border-red-500' // Apply red border when there's an error
+        )}
+      >
         <CommandInput
           ref={inputRef}
-          value={inputValue}
+          value={error ? error : inputValue}
           onValueChange={isLoading ? undefined : setInputValue}
           onBlur={handleBlur}
           onFocus={() => setOpen(true)}
           placeholder={placeholder}
           disabled={disabled}
         ></CommandInput>
-        <ChevronDown
-          className={cn(
-            'h-5 w-5 stroke-[#7F92B9]',
-            disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
-          )}
-          onClick={handleChevronClick}
-          aria-label={isOpen ? 'Close dropdown' : 'Open dropdown'}
-          role="button"
-        />
+        {error ? (
+          <AlertCircle className="mb-[1px] h-5 w-5 text-red-500" />
+        ) : (
+          <ChevronDown
+            className={cn(
+              'h-5 w-5 stroke-[#7F92B9]',
+              disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
+            )}
+            onClick={handleChevronClick}
+            aria-label={isOpen ? 'Close dropdown' : 'Open dropdown'}
+            role="button"
+          />
+        )}
       </div>
+
       <div className="relative mt-1">
         <div
           className={cn(
