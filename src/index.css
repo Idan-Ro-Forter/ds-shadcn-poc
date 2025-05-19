@@ -44,6 +44,7 @@ input::placeholder {
     --text-tertiary: #7f92b9;
     --border-primary: #dae2f5;
     --surface-secondary: #fbfcfc;
+    --surface-secondary-dev: 240, 100%, 97%;
   }
 
   .dark {
@@ -78,6 +79,7 @@ input::placeholder {
     --text-tertiary: #7f92b9;
     --border-primary: #dae2f5;
     --surface-secondary: #fbfcfc;
+    --surface-secondary-dev: 240, 100%, 97%;
   }
 }
 

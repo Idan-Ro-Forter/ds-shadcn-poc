@@ -13,7 +13,7 @@ const meta: Meta<typeof Chip> = {
   tags: ['autodocs'],
   argTypes: {
     variant: {
-      options: ['default', 'secondary', 'destructive', 'outline', 'action'],
+      options: ['default', 'active-brand', 'active-dev', 'success', 'danger', 'warning'],
       control: { type: 'select' },
     },
     selected: {
@@ -71,27 +71,6 @@ export const ActiveBrand: Story = {
   args: {
     children: 'Active-brand',
     variant: 'active-brand',
-  },
-}
-
-export const Secondary: Story = {
-  args: {
-    children: 'Chip',
-    variant: 'secondary',
-  },
-}
-
-export const Destructive: Story = {
-  args: {
-    children: 'Destructive',
-    variant: 'destructive',
-  },
-}
-
-export const Outline: Story = {
-  args: {
-    children: 'Outline',
-    variant: 'outline',
   },
 }
 
