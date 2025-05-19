@@ -71,12 +71,12 @@ input::placeholder {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --surface-primary: #ffffff;
     --surface-tertiary: #2b2b2b;
     --text-secondary: #afc2e8;
     --text-assistive: 216.52, 18.4%, 75.49%;
     --text-tertiary: #7f92b9;
     --border-primary: #dae2f5;
-    --surface-primary: #ffffff;
     --surface-secondary: #fbfcfc;
   }
 }
