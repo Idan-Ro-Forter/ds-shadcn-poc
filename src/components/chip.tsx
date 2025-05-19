@@ -9,7 +9,7 @@ interface ChipProps extends Omit<BadgeProps, 'onClick'> {
   leftIcon?: ReactNode
   rightIcon?: ReactNode
   dismissible?: boolean
-  onDismiss?: () => void
+  onDismiss?: (e: React.MouseEvent) => void
   disabled?: boolean
 }
 
@@ -41,7 +41,7 @@ const Chip: FC<ChipProps> = ({
     e.stopPropagation()
     setVisible(false)
     if (onDismiss) {
-      onDismiss()
+      onDismiss(e)
     }
   }
 
@@ -53,7 +53,7 @@ const Chip: FC<ChipProps> = ({
     <Badge
       className={cn(
         {
-          'border-border-brand border': isSelected && !disabled,
+          'border border-border-brand': isSelected && !disabled,
           'cursor-pointer': onAction && !disabled,
           'cursor-not-allowed opacity-50': disabled,
         },

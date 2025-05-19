@@ -61,3 +61,26 @@ export const Loading: Story = {
     isLoading: true,
   },
 }
+
+export const Multiselect: Story = {
+  args: {
+    placeholder: 'Select multiple options...',
+    emptyMessage: 'No matches found',
+    options: [
+      { value: 'option-1', label: 'Option 1' },
+      { value: 'option-2', label: 'Option 2' },
+      { value: 'option-3', label: 'Option 3' },
+      { value: 'option-4', label: 'Option 4' },
+      { value: 'option-5', label: 'Option 5' },
+      {
+        value: 'option-with-long-text',
+        label: 'This is an option with a very long text that should be truncated',
+      },
+    ],
+    multiselect: true,
+    value: [
+      { value: 'option-1', label: 'Option 1' },
+      { value: 'option-3', label: 'Option 3' },
+    ],
+  },
+}
