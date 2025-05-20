@@ -269,12 +269,9 @@ export const Combobox = ({
                           event.stopPropagation()
                         }}
                         onSelect={() => handleSelectOption(option)}
-                        className={cn(
-                          'flex w-full items-center gap-2',
-                          !isSelected ? 'pl-8' : null
-                        )}
+                        className={cn(' w-full items-center pl-1.5', isSelected && 'pl-1')}
                       >
-                        {isSelected ? <Check className="w-4" /> : null}
+                        {isSelected ? <Check className="px-0" /> : null}
                         {option.label}
                       </CommandItem>
                     )
@@ -282,7 +279,7 @@ export const Combobox = ({
                 </CommandGroup>
               ) : null}
               {!isLoading ? (
-                <CommandPrimitive.Empty className="select-none rounded-sm px-2 py-3 text-center text-sm">
+                <CommandPrimitive.Empty className="select-none rounded-sm px-2 py-3 font-poppins text-sm text-text-tertiary">
                   {emptyMessage}
                 </CommandPrimitive.Empty>
               ) : null}

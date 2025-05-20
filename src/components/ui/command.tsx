@@ -39,7 +39,7 @@ const CommandInput = React.forwardRef<
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        'placeholder:text-text-assistive flex h-10 w-full rounded-md bg-transparent py-3 font-poppins text-sm outline-none placeholder:font-poppins placeholder:font-thin placeholder:tracking-[-0.049px] disabled:cursor-not-allowed disabled:opacity-50',
+        'flex h-10 w-full rounded-md bg-transparent py-3 font-poppins text-sm outline-none placeholder:font-poppins placeholder:font-thin placeholder:tracking-[-0.049px] placeholder:text-text-assistive disabled:cursor-not-allowed disabled:opacity-50',
         className
       )}
       {...props}
@@ -106,7 +106,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex cursor-default select-none items-center gap-2 rounded-md p-1 font-poppins text-sm outline-none data-[disabled=true]:pointer-events-none data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+      'relative flex cursor-default select-none items-center gap-1 rounded-md p-1 font-poppins text-sm outline-none data-[disabled=true]:pointer-events-none data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
       className
     )}
     {...props}

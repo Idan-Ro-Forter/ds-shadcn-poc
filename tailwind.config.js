@@ -45,7 +45,7 @@ module.exports = {
           secondary: {
             DEFAULT: 'var(--surface-secondary)',
             brand: '#DCEAFF',
-            dev: 'hsl(var(--surface-secondary-dev)',
+            dev: 'hsl(var(--surface-secondary-dev))',
           },
         },
         text: {
