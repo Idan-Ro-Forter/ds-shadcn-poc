@@ -1,10 +1,10 @@
-import { CommandGroup, CommandItem, CommandList, CommandInput } from './command'
+import { CommandGroup, CommandItem, CommandList, CommandInput } from './base/command'
 import { Command as CommandPrimitive } from 'cmdk'
 import { useState, useRef, useCallback, type KeyboardEvent } from 'react'
 import { ChevronDown, AlertCircle, Check } from 'lucide-react'
 import { cn } from '../../lib/utils'
-import { Skeleton } from './skeleton'
-import Chip from '../chip'
+import { Skeleton } from './base/skeleton'
+import Chip from './chip'
 
 export type Option = Record<'value' | 'label', string> & Record<string, string>
 
