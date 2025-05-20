@@ -74,6 +74,32 @@ export const ActiveBrand: Story = {
   },
 }
 
+export const ActiveDev: Story = {
+  args: {
+    children: 'Active-dev',
+    variant: 'active-dev',
+  },
+}
+
+export const success: Story = {
+  args: {
+    children: 'Success',
+    variant: 'success',
+  },
+}
+export const Warning: Story = {
+  args: {
+    children: 'Warning',
+    variant: 'warning',
+  },
+}
+export const Danger: Story = {
+  args: {
+    children: 'Danger',
+    variant: 'danger',
+  },
+}
+
 export const WithLeftIcon: Story = {
   args: {
     children: 'Left Icon',

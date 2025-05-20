@@ -46,6 +46,9 @@ module.exports = {
             DEFAULT: 'var(--surface-secondary)',
             brand: '#DCEAFF',
             dev: 'hsl(var(--surface-secondary-dev))',
+            success: 'hsl(var(--surface-secondary-success))',
+            warning: 'hsl(var(--surface-secondary-warning))',
+            error: 'hsl(var(--surface-secondary-error))',
           },
         },
         text: {
@@ -53,6 +56,10 @@ module.exports = {
           brand: '#1F75F6',
           tertiary: 'var(--text-tertiary)',
           assistive: 'hsl(var(--text-assistive))',
+          dev: 'hsl(var(--text-dev))',
+          success: 'hsl(var(--text-success))',
+          warning: 'hsl(var(--text-warning))',
+          error: 'hsl(var(--text-error))',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
