@@ -45,10 +45,14 @@ module.exports = {
           secondary: {
             DEFAULT: 'var(--surface-secondary)',
             brand: '#DCEAFF',
-            dev: 'hsl(var(--surface-secondary-dev))',
-            success: 'hsl(var(--surface-secondary-success))',
-            warning: 'hsl(var(--surface-secondary-warning))',
-            error: 'hsl(var(--surface-secondary-error))',
+            dev: 'color-mix(in hsl, hsl(var(--surface-secondary-dev)) calc(<alpha-value> * 100%), transparent)',
+            success:
+              'color-mix(in hsl, hsl(var(--surface-secondary-success)) calc(<alpha-value> * 100%), transparent)',
+
+            warning:
+              'color-mix(in hsl, hsl(var(--surface-secondary-warning)) calc(<alpha-value> * 100%), transparent)',
+            error:
+              'color-mix(in hsl, hsl(var(--surface-secondary-error)) calc(<alpha-value> * 100%), transparent)',
           },
         },
         text: {
