@@ -85,12 +85,15 @@ input::placeholder {
     --surface-primary: #ffffff;
     --surface-secondary: #fbfcfc;
     --surface-secondary-dev: 240, 100%, 97%;
-    --surface-secondary-success: 130, 100%, 24%;
-    --surface-secondary-warning: 43, 72%, 36%;
-    --surface-secondary-error: 359, 94%, 34%;
+    --surface-secondary-success: 130, 56%, 94%;
+    --surface-secondary-warning: 42, 94%, 93%;
+    --surface-secondary-error: 357, 85%, 95%;
     --surface-tertiary: #2b2b2b;
     --text-secondary: #afc2e8;
     --text-tertiary: #7f92b9;
+    --text-success: 130, 100%, 24%;
+    --text-warning: 43, 72%, 36%;
+    --text-error: 359, 94%, 34%;
     --text-assistive: 216.52, 18.4%, 75.49%;
     --text-dev: 241, 74%, 57%;
   }
