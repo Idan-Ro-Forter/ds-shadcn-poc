@@ -1,7 +1,6 @@
 import { FC, ReactNode, useState } from 'react'
 import Chip from './chip'
 import { cn } from '@/lib/utils'
-import { ChipProps } from './chip.types'
 
 export interface ChipOption {
   id: string
