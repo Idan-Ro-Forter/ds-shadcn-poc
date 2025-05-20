@@ -1,17 +1,8 @@
-import { FC, useState, ReactNode } from 'react'
-import { Badge, BadgeProps } from '../base/badge'
+import { FC, useEffect, useState } from 'react'
+import { Badge } from '../base/badge'
 import { X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-
-interface ChipProps extends Omit<BadgeProps, 'onClick'> {
-  onAction?: () => void
-  selected?: boolean
-  leftIcon?: ReactNode
-  rightIcon?: ReactNode
-  dismissible?: boolean
-  onDismiss?: (e: React.MouseEvent) => void
-  disabled?: boolean
-}
+import { ChipProps } from './chip.types'
 
 const Chip: FC<ChipProps> = ({
   children,
@@ -26,7 +17,12 @@ const Chip: FC<ChipProps> = ({
   ...props
 }) => {
   const [isSelected, setIsSelected] = useState(selected)
+
   const [visible, setVisible] = useState(true)
+
+  useEffect(() => {
+    setIsSelected(selected)
+  }, [selected])
 
   const handleClick = () => {
     if (onAction && !disabled) {
@@ -59,7 +55,7 @@ const Chip: FC<ChipProps> = ({
         },
         className
       )}
-      onClick={!disabled && onAction ? handleClick : undefined}
+      onClick={!disabled ? handleClick : undefined}
       data-selected={isSelected}
       data-disabled={disabled}
       aria-disabled={disabled}
