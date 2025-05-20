@@ -25,7 +25,7 @@ export const ComboboxInput = ({
   inputValue,
   setInputValue,
   error,
-  isLoading,
+  // isLoading,
   placeholder,
   disabled,
   onFocus,
@@ -45,7 +45,7 @@ export const ComboboxInput = ({
       <CommandInput
         ref={inputRef}
         value={error ? error : inputValue}
-        onValueChange={isLoading ? undefined : setInputValue}
+        onValueChange={setInputValue}
         onBlur={onBlur}
         onFocus={onFocus}
         placeholder={multiselect && selectedItems.length > 0 ? '' : placeholder}
