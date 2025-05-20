@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import Chip from '../components/ui/chip'
+import Chip from '../components/ui/composed/chip'
 import { action } from '@storybook/addon-actions'
 import { ChevronRight, Star } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/base/avatar'

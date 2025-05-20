@@ -1,5 +1,5 @@
 import { FC, useState, ReactNode } from 'react'
-import { Badge, BadgeProps } from './base/badge'
+import { Badge, BadgeProps } from '../base/badge'
 import { X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
