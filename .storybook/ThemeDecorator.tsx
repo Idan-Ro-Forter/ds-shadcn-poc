@@ -19,7 +19,7 @@ export const ThemeDecorator = (Story: StoryFn) => {
 
   return (
     <ThemeProvider defaultTheme={theme || 'light'}>
-      <div className="min-h-screen bg-background p-4">
+      <div className="bg-background p-4">
         <Story />
       </div>
     </ThemeProvider>
